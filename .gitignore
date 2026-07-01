@@ -1,0 +1,29 @@
+# --- dataset (large; K-pop audio/video is not ours to redistribute) ---
+data/
+*.m4a
+*.mp4
+*.jpg
+*.wav
+
+# --- datasets received from another researcher (do not distribute) ---
+aligned/
+dataset_share/
+mandarin_official_versions.md
+aligned_to_dataset_share_mapping.csv
+
+# --- auth / local / personal ---
+**/cookies.txt
+*.code-workspace
+.env
+
+# --- python ---
+__pycache__/
+*.pyc
+
+# --- macOS ---
+.DS_Store
+__MACOSX/
+
+# --- local tooling ---
+.claude/
+.ipynb_checkpoints/
