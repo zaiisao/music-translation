@@ -69,13 +69,17 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--idx", type=int)
     ap.add_argument("--all", action="store_true", help="every kr_lyrics/*.txt")
+    ap.add_argument("--overwrite", action="store_true", help="re-align songs that already have <idx>.jsonl")
     args = ap.parse_args()
     if args.all:
         import glob
-        targets = sorted(int(os.path.basename(p)[:3]) for p in glob.glob(os.path.join(LYR, "*.txt")))
+        targets = sorted({int(os.path.basename(p)[:3]) for p in glob.glob(os.path.join(LYR, "*.txt"))
+                          if not p.endswith(".en.txt")})
     else:
         targets = [args.idx]
     for i in targets:
+        if args.all and not args.overwrite and os.path.exists(os.path.join(LYR, f"{i:03d}.jsonl")):
+            print(json.dumps({"idx": i, "skip": "cached"}), flush=True); continue
         try:
             print(json.dumps(align(i), ensure_ascii=False), flush=True)
         except Exception as e:

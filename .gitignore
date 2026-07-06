@@ -6,10 +6,13 @@ data/
 *.wav
 
 # --- datasets received from another researcher (do not distribute) ---
-aligned/
-dataset_share/
-mandarin_official_versions.md
-aligned_to_dataset_share_mapping.csv
+expand-lyrics-audio/aligned/
+expand-lyrics-audio/dataset_share/
+expand-lyrics-audio/mandarin_official_versions.md
+expand-lyrics-audio/aligned_to_dataset_share_mapping.csv
+
+# --- external datasets (CC-BY-NC, not ours to redistribute) ---
+expand-lyrics-audio/mavl/
 
 # --- auth / local / personal ---
 **/cookies.txt
